@@ -39,6 +39,6 @@ for (i in 92:126){
   data[,i]<-spei_mean 
 } 
 data1<-data.frame(ID,data)
-write.csv(data1,'path target')
+write.csv(data1,'path/target')
 
 
