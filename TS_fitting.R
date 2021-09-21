@@ -1,11 +1,13 @@
 ################################################################################
+## Title: Fit a double logistic function to a Sentinel-2 vegetation index (VI) time series
 ## 
 ## Requirements:
 ## - install package 'greenbrown': http://greenbrown.r-forge.r-project.org/
-## - Sentinel-2(S2) observation: I obtained the time-series from Matlab and directly load .csv file into R
-## - Two separated local time-series (maize growth and decline; maize decline and cover crop growth) from matlab: 
+## - Sentinel-2(S2) global observation: load S2 time-series observations in the CSV format
+## - Two separated local time-series (maize growth and decline; maize decline and cover crop growth) in the CSV format: 
+##   note: to obtain the two separated local time-series, pre-processing could be done outside R 
 ##   (1) Daily interpolation of S2 time-series using Piecewise Cubic Hermite Interpolation 
-##   (2) Separate interpolated time-series into two parts based on thresholds in time  
+##   (2) Separate interpolated time-series into two local time-series based on defined principles (specific thresholds) in time  
 ##
 ################################################################################
 
@@ -18,7 +20,7 @@
 setwd("D:/Theia/aggregate") 
 
 ## Importing the sample data
-NDVI_S2 <- read.csv('NDVI_S2.csv',header=FALSE)     # Sentinel-2 observaation
+NDVI_S2 <- read.csv('NDVI_S2.csv',header=FALSE)     # Sentinel-2 observation (global)
 maizedat <- read.csv('maize_TS.csv',header=FALSE)   # Interpolated time-series for maize growth and decline
 coverdat <- read.csv('cover_TS.csv',header=FALSE)	  # Interpolated time-series for maize decline and cover crop growth
 
